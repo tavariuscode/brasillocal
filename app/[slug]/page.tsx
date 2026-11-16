@@ -7,6 +7,12 @@ interface ParceiroPageProps {
   params: Promise<{ slug: string }>;
 }
 
+export async function generateStaticParams() {
+  return PARCEIROS.map((parceiro) => ({
+    slug: parceiro.slug,
+  }));
+}
+
 export async function generateMetadata({
   params,
 }: ParceiroPageProps): Promise<Metadata> {

@@ -1,3 +1,7 @@
+export type RegiaoBrasil =
+  | "Todos"
+  |
+
 export type TemaCategoria =
   | "Todos"
   | "Turismo"
@@ -27,13 +31,33 @@ export interface Parceiro {
   tema: Exclude<TemaCategoria, "Todos">;
   cidade: string;
   estado: string;
+  siglaEstado: string;
   descricao: string;
   imagem: string;
   corBadge: string;
   whatsapp: string;
+  instagramUrl?: string;
+  siteUrl?: string;
+  destaqueOferta?: string;
+  precoOriginal?: number;
+  precoPromocional?: number;
   comodidades?: string[];
   estilo: EstiloParceiro;
   servicos: ServicoParceiro[];
+}
+
+export interface EstadoItem {
+  sigla: string;
+  nome: string;
+  regiao: Exclude<RegiaoBrasil, "Todos">;
+  quantidadeServicos: number;
+  imagemCapa: string; // <-- Novo campo para a foto do estado
+  destaques: string[];
+  tema: {
+    corPrincipal: string;
+    corSuave: string;
+    corTexto: string;
+  };
 }
 
 export interface ArtigoBlog {

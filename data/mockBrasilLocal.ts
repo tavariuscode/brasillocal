@@ -1,19 +1,171 @@
-import { Parceiro, ArtigoBlog } from "@/types/brasillocal";
+import {
+  TemaCategoria,
+  Parceiro,
+  ArtigoBlog,
+  EstadoItem,
+  RegiaoBrasil,
+} from "@/types/brasillocal";
+
+export const TEMAS: TemaCategoria[] = [
+  "Todos",
+  "Turismo",
+  "Hotelaria",
+  "Shows",
+  "Esporte",
+  "Cultura",
+  "Gastronomia",
+];
+
+export const REGIOES_BRASIL: RegiaoBrasil[] = [
+  "Todos",
+  "Norte",
+  "Nordeste",
+  "Centro-Oeste",
+  "Sudeste",
+  "Sul",
+];
+
+export const TODOS_ESTADOS: EstadoItem[] = [
+  {
+    sigla: "CE",
+    nome: "Ceará",
+    regiao: "Nordeste",
+    quantidadeServicos: 142,
+    destaques: ["Praia de Jericoacoara", "Kitesurf em Canoa Quebrada", "Culinária praiana"],
+    tema: { corPrincipal: "#ff7b00", corSuave: "#fff5ec", corTexto: "#803e00" },
+  },
+  {
+    sigla: "MA",
+    nome: "Maranhão",
+    regiao: "Nordeste",
+    quantidadeServicos: 85,
+    destaques: ["Lençóis Maranhenses", "Centro Histórico de São Luís", "Barreirinhas"],
+    tema: { corPrincipal: "#00b4d8", corSuave: "#f0faff", corTexto: "#0077b6" },
+  },
+  {
+    sigla: "RN",
+    nome: "Rio Grande do Norte",
+    regiao: "Nordeste",
+    quantidadeServicos: 93,
+    destaques: ["Maior Cajueiro do Mundo", "Praia de Pipa", "Buggy em Genipabu"],
+    tema: { corPrincipal: "#e63946", corSuave: "#fff5f5", corTexto: "#9b2226" },
+  },
+  {
+    sigla: "BA",
+    nome: "Bahia",
+    regiao: "Nordeste",
+    quantidadeServicos: 210,
+    destaques: ["Pelourinho", "Porto Seguro", "Chapada Diamantina"],
+    tema: { corPrincipal: "#ffb703", corSuave: "#fffdf0", corTexto: "#b57c00" },
+  },
+  {
+    sigla: "RR",
+    nome: "Roraima",
+    regiao: "Norte",
+    quantidadeServicos: 41,
+    destaques: ["Monte Roraima", "Ecoturismo em Tepequém", "Cultura Indígena"],
+    tema: { corPrincipal: "#2a9d8f", corSuave: "#f0faf7", corTexto: "#1d6f64" },
+  },
+  {
+    sigla: "AM",
+    nome: "Amazonas",
+    regiao: "Norte",
+    quantidadeServicos: 64,
+    destaques: ["Encontro das Águas", "Teatro Amazonas", "Imersão na Selva"],
+    tema: { corPrincipal: "#4c9a2a", corSuave: "#f3f9f1", corTexto: "#2d6a12" },
+  },
+  {
+    sigla: "PA",
+    nome: "Pará",
+    regiao: "Norte",
+    quantidadeServicos: 78,
+    destaques: ["Alter do Chão", "Mercado Ver-o-Peso", "Ilha de Marajó"],
+    tema: { corPrincipal: "#15803d", corSuave: "#f0fdf4", corTexto: "#14532d" },
+  },
+  {
+    sigla: "GO",
+    nome: "Goiás",
+    regiao: "Centro-Oeste",
+    quantidadeServicos: 115,
+    destaques: ["Chapada dos Veadeiros", "Caldas Novas", "Pirenópolis"],
+    tema: { corPrincipal: "#ca8a04", corSuave: "#fefce8", corTexto: "#713f12" },
+  },
+  {
+    sigla: "MS",
+    nome: "Mato Grosso do Sul",
+    regiao: "Centro-Oeste",
+    quantidadeServicos: 89,
+    destaques: ["Flutuação em Bonito", "Pantanal Sul", "Gruta do Lago Azul"],
+    tema: { corPrincipal: "#0284c7", corSuave: "#f0f9ff", corTexto: "#0c4a6e" },
+  },
+  {
+    sigla: "RJ",
+    nome: "Rio de Janeiro",
+    regiao: "Sudeste",
+    quantidadeServicos: 320,
+    destaques: ["Cristo Redentor", "Arraial do Cabo", "Paraty e Ilha Grande"],
+    tema: { corPrincipal: "#0ea5e9", corSuave: "#f0f9ff", corTexto: "#0369a1" },
+  },
+  {
+    sigla: "SP",
+    nome: "São Paulo",
+    regiao: "Sudeste",
+    quantidadeServicos: 410,
+    destaques: ["Gastronomia na Capital", "Ilhabela", "Campos do Jordão"],
+    tema: { corPrincipal: "#dc2626", corSuave: "#fef2f2", corTexto: "#7f1d1d" },
+  },
+  {
+    sigla: "MG",
+    nome: "Minas Gerais",
+    regiao: "Sudeste",
+    quantidadeServicos: 195,
+    destaques: ["Ouro Preto", "Serra da Canastra", "Inhotim"],
+    tema: { corPrincipal: "#d97706", corSuave: "#fffbeb", corTexto: "#78350f" },
+  },
+  {
+    sigla: "RS",
+    nome: "Rio Grande do Sul",
+    regiao: "Sul",
+    quantidadeServicos: 184,
+    destaques: ["Serra Gaúcha", "Vale dos Vinhedos", "Cânions de Cambará"],
+    tema: { corPrincipal: "#1d4ed8", corSuave: "#eff6ff", corTexto: "#1e3a8a" },
+  },
+  {
+    sigla: "SC",
+    nome: "Santa Catarina",
+    regiao: "Sul",
+    quantidadeServicos: 215,
+    destaques: ["Florianópolis", "Balneário Camboriú", "Serra do Rio do Rastro"],
+    tema: { corPrincipal: "#0f766e", corSuave: "#f0fdfa", corTexto: "#134e4a" },
+  },
+  {
+    sigla: "PR",
+    nome: "Paraná",
+    regiao: "Sul",
+    quantidadeServicos: 160,
+    destaques: ["Cataratas do Iguaçu", "Trem em Morretes", "Parques de Curitiba"],
+    tema: { corPrincipal: "#047857", corSuave: "#ecfdf5", corTexto: "#064e3b" },
+  },
+];
 
 export const PARCEIROS: Parceiro[] = [
   {
     id: 1,
     slug: "jeriaventura",
-    nome: "Jeri & Litoral Sol",
+    nome: "Luis Filho Turismo",
     tema: "Turismo",
     cidade: "Fortaleza",
     estado: "Ceará",
-    descricao:
-      "Passeios de buggy, lagoas cristalinas e roteiros exclusivos pelo litoral cearense.",
-    imagem:
-      "https://unsplash.com",
-    corBadge: "bg-amber-100 text-amber-800",
+    siglaEstado: "CE",
+    destaqueOferta: "Passeio de Buggy no Litoral Leste",
+    precoOriginal: 350,
+    precoPromocional: 260,
+    descricao: "Passeios de buggy, lagoas cristalinas e roteiros exclusivos pelo litoral cearense.",
+    imagem: "imagens/passeiobuggy.jpg",
+    corBadge: "bg-blue-50 text-blue-700",
     whatsapp: "5585999990001",
+    instagramUrl: "https://instagram.com",
+    siteUrl: "https://exemplo.com.br",
     estilo: {
       fundo: "bg-amber-50",
       banner: "bg-gradient-to-r from-amber-500 to-cyan-600 text-white",
@@ -23,30 +175,27 @@ export const PARCEIROS: Parceiro[] = [
     servicos: [
       {
         titulo: "Passeio de Buggy Litoral Leste",
-        preco: "R$ 350,00 / buggy",
-        detalhe:
-          "Duração de 6 horas passando por lagoas e dunas com guia credenciado.",
-      },
-      {
-        titulo: "Transfer Fortaleza → Jericoacoara",
-        preco: "R$ 180,00 / pessoa",
-        detalhe: "Veículo 4x4 climatizado com saída diária dos hotéis.",
+        preco: "R$ 260,00 / buggy",
+        detalhe: "Duração de 6 horas passando por lagoas e dunas com guia credenciado.",
       },
     ],
   },
   {
     id: 2,
     slug: "escoladesurfmar",
-    nome: "Escola de Surf Ondas do Futuro",
+    nome: "Surf Ladies Escola de Surf",
     tema: "Esporte",
     cidade: "Fortaleza",
     estado: "Ceará",
-    descricao:
-      "Aulas de surf para todas as idades, aluguel de pranchas e treino funcional na areia.",
-    imagem:
-      "https://unsplash.com",
-    corBadge: "bg-cyan-100 text-cyan-800",
+    siglaEstado: "CE",
+    destaqueOferta: "Aula Experimental de Surf + Prancha",
+    precoOriginal: 120,
+    precoPromocional: 85,
+    descricao: "Aulas de surf para todas as idades, aluguel de pranchas e treino funcional na areia.",
+    imagem: "/imagens/surf_lesteoeste.jpg",
+    corBadge: "bg-blue-50 text-blue-700",
     whatsapp: "5585999990002",
+    instagramUrl: "https://instagram.com",
     estilo: {
       fundo: "bg-cyan-50",
       banner: "bg-gradient-to-r from-cyan-700 to-blue-600 text-white",
@@ -56,30 +205,26 @@ export const PARCEIROS: Parceiro[] = [
     servicos: [
       {
         titulo: "Aula Experimental de Surf",
-        preco: "R$ 90,00 / aula",
-        detalhe:
-          "Inclui prancha softboard, lycra de proteção e instrutor na água.",
-      },
-      {
-        titulo: "Pacote Mensal (8 Aulas)",
-        preco: "R$ 480,00 / mês",
-        detalhe: "Aulas duas vezes por semana com acompanhamento de evolução.",
+        preco: "R$ 85,00 / aula",
+        detalhe: "Inclui prancha softboard, lycra de proteção e instrutor na água.",
       },
     ],
   },
   {
     id: 3,
     slug: "forrodosertao",
-    nome: "Banda Forró do Sertão",
+    nome: "Rey Vaqueiro",
     tema: "Shows",
     cidade: "Fortaleza",
     estado: "Ceará",
-    descricao:
-      "O melhor do forró pé-de-serra e estilizado para festas, casamentos e grandes eventos.",
-    imagem:
-      "https://unsplash.com",
-    corBadge: "bg-purple-100 text-purple-800",
-    whatsapp: "5585999990003",
+    siglaEstado: "CE",
+    destaqueOferta: "Rey Vaqueiro no Marina Park dia 29 de novembro",
+    descricao: "O melhor do forró swingado para festas, casamentos e grandes eventos.",
+    imagem: "imagens/rey_vaqueiro.jpeg",
+    corBadge: "bg-blue-50 text-blue-700",
+    whatsapp: "https://wa.me/5585981803889",
+    instagramUrl: "https://instagram.com",
+    siteUrl: "https://www.instagram.com/surf.ladies/",
     estilo: {
       fundo: "bg-orange-50",
       banner: "bg-gradient-to-r from-orange-700 to-amber-600 text-white",
@@ -90,29 +235,26 @@ export const PARCEIROS: Parceiro[] = [
       {
         titulo: "Show Completo (Banda + Estrutura)",
         preco: "Sob consulta",
-        detalhe:
-          "Repertório de 3 horas com sanfona, zabumba, triângulo e vocal.",
-      },
-      {
-        titulo: "Agenda Pública — Sábado no Kukukaya",
-        preco: "Ingressos no local",
-        detalhe: "Abertura dos portões às 21h em Fortaleza.",
+        detalhe: "Repertório de 3 horas com sanfona, zabumba, triângulo e vocal.",
       },
     ],
   },
   {
     id: 4,
     slug: "brutusburger",
-    nome: "Brutus Burger Artesanal",
+    nome: "Kulegas Lanches",
     tema: "Gastronomia",
-    cidade: "Natal",
-    estado: "Rio Grande do Norte",
-    descricao:
-      "Hambúrgueres feitos na brasa com blend especial, queijo coalho maçaricado e molhos da casa.",
-    imagem:
-      "https://unsplash.com",
-    corBadge: "bg-red-100 text-red-800",
+    cidade: "Boa Vista",
+    estado: "Roraima",
+    siglaEstado: "RR",
+    destaqueOferta: "Combo Kulegas X Tudo Aloprado + Fritas",
+    precoOriginal: 52,
+    precoPromocional: 42.9,
+    descricao: "Hambúrgueres feitos na brasa com blend especial, queijo coalho maçaricado e molhos da casa.",
+    imagem: "imagens/xtudo_kulegas.png",
+    corBadge: "bg-blue-50 text-blue-700",
     whatsapp: "5584999990004",
+    instagramUrl: "https://instagram.com",
     estilo: {
       fundo: "bg-stone-100",
       banner: "bg-gradient-to-r from-red-800 to-stone-900 text-white",
@@ -121,31 +263,24 @@ export const PARCEIROS: Parceiro[] = [
     },
     servicos: [
       {
-        titulo: "Combo Brutus Sertanejo",
+        titulo: "Kulegas lanches",
         preco: "R$ 42,90",
-        detalhe:
-          "Burger 180g na brasa, queijo coalho, melaço picante, fritas e refrigerante.",
-      },
-      {
-        titulo: "Duplo Cheddar Bacon",
-        preco: "R$ 36,00",
-        detalhe:
-          "Dois blends de 120g, cheddar cremoso e bacon crocante no pão brioche.",
+        detalhe: "Burger 180g na brasa, queijo coalho, melaço picante, fritas e refrigerante.",
       },
     ],
   },
   {
     id: 5,
     slug: "museudacultura",
-    nome: "Centro Cultural Dragão do Mar",
+    nome: "Centro Cultural de Recife",
     tema: "Cultura",
-    cidade: "Fortaleza",
-    estado: "Ceará",
-    descricao:
-      "Espaço dedicado à arte, cultura cearense, exposições, planetário e apresentações teatrais.",
-    imagem:
-      "https://unsplash.com",
-    corBadge: "bg-emerald-100 text-emerald-800",
+    cidade: "Recife",
+    estado: "Pernambuco",
+    siglaEstado: "PE",
+    destaqueOferta: "Exposições e Planetário Rubens de Azevedo",
+    descricao: "Espaço dedicado à arte, cultura pernambucana, exposições, planetário e apresentações teatrais.",
+    imagem: "/imagens/exposicaopernambuco.jpeg",
+    corBadge: "bg-blue-50 text-blue-700",
     whatsapp: "5585999990005",
     estilo: {
       fundo: "bg-emerald-50",
@@ -159,26 +294,25 @@ export const PARCEIROS: Parceiro[] = [
         preco: "Entrada Gratuita",
         detalhe: "Terça a domingo, das 9h às 18h. Agendamento para grupos.",
       },
-      {
-        titulo: "Sessão no Planetário Rubens de Azevedo",
-        preco: "R$ 20,00 (inteira)",
-        detalhe: "Sessões educativas sobre astronomia nos fins de semana.",
-      },
     ],
   },
-    {
+  {
     id: 6,
-    slug: "pousadabrisa",
-    nome: "Pousada Brisa do Mar",
+    slug: "pousafolhatropical",
+    nome: "Pousada Folha Tropical ",
     tema: "Hotelaria",
-    cidade: "Aquiraz",
-    estado: "Ceará",
-    descricao:
-      "Pousada pé na areia com café da manhã regional incluso, piscina e suítes familiares.",
-    imagem:
-      "https://unsplash.com",
-    corBadge: "bg-teal-100 text-teal-800",
-    whatsapp: "5585999990006",
+    cidade: "Pipa",
+    estado: "Rio Grande do Norte",
+    siglaEstado: "RN",
+    destaqueOferta: "Diária Suíte Casal + Café",
+    precoOriginal: 390,
+    precoPromocional: 320,
+    descricao: "Pousada com café da manhã regional incluso, piscina e suítes familiares.",
+    imagem: "/imagens/folhatropical.png",
+    corBadge: "bg-blue-50 text-blue-700",
+    whatsapp: "5584994075807",
+    instagramUrl: "https://instagram.com",
+    siteUrl: "https://exemplo.com.br",
     comodidades: ["Café da manhã incluso", "Piscina", "Wi-Fi Grátis", "Frente-mar"],
     estilo: {
       fundo: "bg-teal-50",
@@ -190,76 +324,29 @@ export const PARCEIROS: Parceiro[] = [
       {
         titulo: "Suíte Casal Vista Mar (Diária)",
         preco: "R$ 320,00 / noite",
-        detalhe:
-          "Cama queen-size, ar-condicionado, varanda com rede e café da manhã completo.",
-      },
-      {
-        titulo: "Suíte Família até 4 Pessoas (Diária)",
-        preco: "R$ 490,00 / noite",
-        detalhe:
-          "Dois ambientes climatizados, frigobar e acesso direto à área da piscina.",
+        detalhe: "Cama queen-size, ar-condicionado, varanda com rede e café da manhã completo.",
       },
     ],
   },
-  {
-    id: 7,
-    slug: "hotelserraverde",
-    nome: "Hotel Serra Verde",
-    tema: "Hotelaria",
-    cidade: "Guaramiranga",
-    estado: "Ceará",
-    descricao:
-      "Refúgio na serra com clima ameno, trilhas ecológicas e chalés aconchegantes.",
-    imagem:
-      "https://unsplash.com",
-    corBadge: "bg-teal-100 text-teal-800",
-    whatsapp: "5585999990007",
-    comodidades: ["Estacionamento", "Trilhas", "Café colonial", "Pet Friendly"],
-    estilo: {
-      fundo: "bg-emerald-50",
-      banner: "bg-gradient-to-r from-emerald-900 to-teal-800 text-white",
-      botao: "bg-emerald-800 hover:bg-emerald-900 text-white",
-      destaque: "text-emerald-800",
-    },
-    servicos: [
-      {
-        titulo: "Chalé Romântico com Lareira",
-        preco: "R$ 410,00 / noite",
-        detalhe:
-          "Ideal para casais, inclui cesta de boas-vindas e café da manhã na serra.",
-      },
-      {
-        titulo: "Pacote Fim de Semana (Sexta a Domingo)",
-        preco: "R$ 780,00 / pacote",
-        detalhe:
-          "Duas diárias para casal com trilha guiada na mata atlântica inclusa.",
-      },
-    ],
-  },
-
 ];
 
 export const ARTIGOS_BLOG: ArtigoBlog[] = [
   {
     id: 1,
     titulo: "Entrevista exclusiva: Os bastidores da turnê do Forró do Sertão",
-    resumo:
-      "Conversamos com o vocalista sobre a nova fase da banda e as datas confirmadas no Nordeste.",
+    resumo: "Conversamos com o vocalista sobre a nova fase da banda e as datas confirmadas no Nordeste.",
     categoria: "Entrevista • Shows",
     parceiroNome: "Ver página oficial da Banda",
     parceiroSlug: "/forrodosertao",
-    imagem:
-      "https://unsplash.com",
+    imagem: "https://unsplash.com",
   },
   {
     id: 2,
     titulo: "Como o surf está transformando o turismo esportivo no litoral",
-    resumo:
-      "Conheça a história do fundador da Escola de Surf Ondas do Futuro e dicas para sua primeira aula.",
+    resumo: "Conheça a história do fundador da Escola de Surf Ondas do Futuro e dicas para sua primeira aula.",
     categoria: "História de Parceiro • Esporte",
     parceiroNome: "Conhecer a Escola de Surf",
     parceiroSlug: "/escoladesurfmar",
-    imagem:
-      "https://unsplash.com",
+    imagem: "https://unsplash.com",
   },
 ];

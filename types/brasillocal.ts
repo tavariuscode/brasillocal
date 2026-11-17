@@ -1,6 +1,11 @@
 export type RegiaoBrasil =
   | "Todos"
-  |
+  | "Norte"
+  | "Nordeste"
+  | "Centro-Oeste"
+  | "Sudeste"
+  | "Sul";
+
 
 export type TemaCategoria =
   | "Todos"
@@ -51,7 +56,7 @@ export interface EstadoItem {
   nome: string;
   regiao: Exclude<RegiaoBrasil, "Todos">;
   quantidadeServicos: number;
-  imagemCapa: string; // <-- Novo campo para a foto do estado
+  imagemCapa?: string; // <-- Novo campo para a foto do estado
   destaques: string[];
   tema: {
     corPrincipal: string;

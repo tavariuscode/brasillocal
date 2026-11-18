@@ -6,14 +6,23 @@ interface PartnerCardProps {
 }
 
 export default function PartnerCard({ parceiro }: PartnerCardProps) {
+  if (!parceiro) return null;
+
+      const numeroLimpo = parceiro.whatsapp.replace(/\D/g, "");
   const mensagemWhats = encodeURIComponent(
-    `Olá, ${parceiro.nome}! Vi sua oferta no BrasilLocal e gostaria de saber mais.`
+    "Olá, " +
+      parceiro.nome +
+      "! Vi sua oferta no BrasilLocal e gostaria de saber mais."
   );
+  const urlWhats = new URL("https://wa.me");
+  urlWhats.pathname = numeroLimpo;
+  urlWhats.searchParams.set("text", "Olá, " + parceiro.nome + "! Vi sua oferta no BrasilLocal e gostaria de saber mais.");
+  const linkWhatsApp = urlWhats.toString();
+
 
   return (
     <article className="bg-white border border-slate-200 rounded-xl overflow-hidden shadow-xs hover:shadow-md transition-shadow flex flex-col justify-between">
       <div>
-        {/* Imagem do Card */}
         <Link href={`/${parceiro.slug}`} className="block relative">
           <img
             src={parceiro.imagem}
@@ -22,7 +31,6 @@ export default function PartnerCard({ parceiro }: PartnerCardProps) {
           />
         </Link>
 
-        {/* Informações Principais */}
         <div className="p-4 pb-0">
           <div className="flex items-center justify-between gap-2">
             <span className="bg-blue-50 text-blue-700 px-2 py-0.5 rounded text-xs font-bold">
@@ -38,7 +46,6 @@ export default function PartnerCard({ parceiro }: PartnerCardProps) {
           </Link>
           <p className="text-xs text-slate-500 mb-3">{parceiro.nome}</p>
 
-          {/* Preço Original e Promocional (quando cadastrado) */}
           {parceiro.precoPromocional && (
             <div className="flex items-baseline gap-2 mb-4">
               {parceiro.precoOriginal && (
@@ -54,13 +61,11 @@ export default function PartnerCard({ parceiro }: PartnerCardProps) {
         </div>
       </div>
 
-      {/* Painel de Conexão Direta com o Parceiro */}
       <div className="p-4 pt-3 border-t border-slate-100 mt-2">
         <span className="text-[11px] text-slate-500 font-bold uppercase block mb-2">
           Falar com o parceiro:
         </span>
 
-        {/* Links Sociais em Linha (Instagram e Site) */}
         {(parceiro.instagramUrl || parceiro.siteUrl) && (
           <div className="flex gap-2 mb-2">
             {parceiro.instagramUrl && (
@@ -86,10 +91,9 @@ export default function PartnerCard({ parceiro }: PartnerCardProps) {
           </div>
         )}
 
-        {/* Botão WhatsApp + Página Exclusiva */}
         <div className="flex gap-2">
           <a
-            href={`https://wa.me{parceiro.whatsapp}?text=${mensagemWhats}`}
+            href={linkWhatsApp}
             target="_blank"
             rel="noreferrer"
             className="flex-1 py-2.5 px-3 bg-emerald-600 hover:bg-emerald-700 text-white rounded-md text-xs font-bold text-center transition-colors"

@@ -8,9 +8,17 @@ interface PartnerTemplateProps {
 
 export default function PartnerTemplate({ parceiro }: PartnerTemplateProps) {
   const { estilo } = parceiro;
-  const mensagemWhatsApp = encodeURIComponent(
-    `Olá, ${parceiro.nome}! Vi o espaço de vocês no BrasilLocal e gostaria de mais informações.`
+   const numeroLimpo = parceiro.whatsapp.replace(/\D/g, "");
+  const mensagemWhats = encodeURIComponent(
+    "Olá, " +
+      parceiro.nome +
+      "! Vi sua oferta no BrasilLocal e gostaria de saber mais."
   );
+  const urlWhats = new URL("https://wa.me");
+  urlWhats.pathname = numeroLimpo;
+  urlWhats.searchParams.set("text", "Olá, " + parceiro.nome + "! Vi sua oferta no BrasilLocal e gostaria de saber mais.");
+  const linkWhatsApp = urlWhats.toString();
+
 
   return (
     <div className={`min-h-screen flex flex-col ${estilo.fundo} text-slate-900`}>
@@ -53,7 +61,7 @@ export default function PartnerTemplate({ parceiro }: PartnerTemplateProps) {
 
       {/* Lista de Serviços / Acomodações / Cardápio */}
       <main className="flex-1 max-w-4xl w-full mx-auto px-4 py-8">
-        {/* Bloco de Comodidades (Aparece apenas se o parceiro tiver comodidades cadastradas) */}
+        {/* Bloco de Comodidades */}
         {parceiro.comodidades && parceiro.comodidades.length > 0 && (
           <div className="mb-6">
             <h2 className="text-sm font-bold uppercase tracking-wider text-slate-500 mb-2.5">
@@ -108,7 +116,7 @@ export default function PartnerTemplate({ parceiro }: PartnerTemplateProps) {
             Atendimento rápido sem intermediários pelo WhatsApp oficial.
           </p>
           <a
-            href={`https://wa.me{parceiro.whatsapp}?text=${mensagemWhatsApp}`}
+            href={linkWhatsApp}
             target="_blank"
             rel="noopener noreferrer"
             className={`inline-block w-full sm:w-auto px-8 py-3.5 rounded-xl font-bold text-sm sm:text-base transition-colors ${estilo.botao}`}

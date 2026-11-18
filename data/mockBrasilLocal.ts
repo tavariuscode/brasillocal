@@ -164,7 +164,7 @@ export const PARCEIROS: Parceiro[] = [
     
     imagem: "imagens/buggyluiz.jpeg",
     corBadge: "bg-blue-50 text-blue-700",
-    whatsapp: "https://wa.me/5585981462755?text=Ol%C3%A1%2C%20Luiz!%20Gostaria%20de%20mais%20informa%C3%A7%C3%B5es!",
+    whatsapp: "5585981462755",
     instagramUrl: "https://www.instagram.com/luizfilhoturismoceara/",
     siteUrl: "https://brasillocal-dr9p.vercel.app/luizfilhoturismoceara",
     estilo: {

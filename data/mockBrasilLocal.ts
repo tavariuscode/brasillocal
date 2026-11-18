@@ -151,21 +151,22 @@ export const TODOS_ESTADOS: EstadoItem[] = [
 export const PARCEIROS: Parceiro[] = [
   {
     id: 1,
-    slug: "jeriaventura",
-    nome: "Luis Filho Turismo",
+    slug: "luizfilhoturismoceara",
+    nome: "Luiz Filho Turismo",
     tema: "Turismo",
     cidade: "Fortaleza",
     estado: "Ceará",
     siglaEstado: "CE",
-    destaqueOferta: "Passeio de Buggy no Litoral Leste",
-    precoOriginal: 350,
-    precoPromocional: 260,
-    descricao: "Passeios de buggy, lagoas cristalinas e roteiros exclusivos pelo litoral cearense.",
-    imagem: "imagens/passeiobuggy.jpg",
+    destaqueOferta: "Passeios de Buggy, Quadriciclo e Praias",
+    precoOriginal: 500,
+    precoPromocional: 450,
+    descricao: "Passeios de buggy, lagoas critalinas e roteiros exclusivos pelo litoral cearense. Há 11 anos proporcionando experiências com conforto, segurança e qualiade. Credenciados pelo Ministério do Turismo (Cadastur) e licenciados localmente.",
+    
+    imagem: "imagens/buggyluiz.jpeg",
     corBadge: "bg-blue-50 text-blue-700",
-    whatsapp: "5585999990001",
-    instagramUrl: "https://instagram.com",
-    siteUrl: "https://exemplo.com.br",
+    whatsapp: "https://wa.me/5585981462755?text=Ol%C3%A1%2C%20Luiz!%20Gostaria%20de%20mais%20informa%C3%A7%C3%B5es!",
+    instagramUrl: "https://www.instagram.com/luizfilhoturismoceara/",
+    siteUrl: "https://brasillocal-dr9p.vercel.app/luizfilhoturismoceara",
     estilo: {
       fundo: "bg-amber-50",
       banner: "bg-gradient-to-r from-amber-500 to-cyan-600 text-white",
@@ -175,8 +176,33 @@ export const PARCEIROS: Parceiro[] = [
     servicos: [
       {
         titulo: "Passeio de Buggy Litoral Leste",
-        preco: "R$ 260,00 / buggy",
+        preco: "R$ 450,00 / buggy",
         detalhe: "Duração de 6 horas passando por lagoas e dunas com guia credenciado.",
+      },
+       {
+        titulo: "Passeio de Buggy Litoral Oeste",
+        preco: "R$ 450,00 / buggy",
+        detalhe: "Duração de 6 horas passando por lagoas e dunas com guia credenciado.",
+      },
+       {
+        titulo: "Hospedagens em Jericoacara",
+        preco: "Consultar Guia",
+        detalhe: "",
+      },
+       {
+        titulo: "Hospedagens em Canoa Quebrada",
+        preco: "Consultar Guia",
+        detalhe: "",
+      },
+      {
+        titulo: "Transfer aeroporto Fortaleza x Jeri x Fortaleza",
+        preco: "Consultar Guia",
+        detalhe: "",
+      },
+      {
+        titulo: "Transfer aeroporto de Jericoacara x hoteis da vila",
+        preco: "Consultar Guia",
+        detalhe: "",
       },
     ],
   },

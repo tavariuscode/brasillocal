@@ -158,11 +158,11 @@ export const PARCEIROS: Parceiro[] = [
     estado: "Ceará",
     siglaEstado: "CE",
     destaqueOferta: "Passeios de Buggy, Quadriciclo e Praias",
-    precoOriginal: 500,
-    precoPromocional: 450,
-    descricao: "Passeios de buggy, lagoas critalinas e roteiros exclusivos pelo litoral cearense. Há 11 anos proporcionando experiências com conforto, segurança e qualiade. Credenciados pelo Ministério do Turismo (Cadastur) e licenciados localmente.",
     
-    imagem: "imagens/buggyluiz.jpeg",
+    descricao: "Há 11 anos proporcionando boas experiências aos amigos clientes. Credenciado pelo Ministério do Turismo (Cadastur) e licenciado localmente.",
+    
+    imagem: "imagens/Luizturismo.jpeg",
+    posicaoImagem: "object-[50%_20%]",
     corBadge: "bg-blue-50 text-blue-700",
     whatsapp: "5585981462755",
     instagramUrl: "https://www.instagram.com/luizfilhoturismoceara/",
@@ -175,14 +175,14 @@ export const PARCEIROS: Parceiro[] = [
     },
     servicos: [
       {
-        titulo: "Passeio de Buggy Litoral Leste",
-        preco: "R$ 450,00 / buggy",
-        detalhe: "Duração de 6 horas passando por lagoas e dunas com guia credenciado.",
+        titulo: "Passeio de Buggy Compartilhado e Privativo",
+        preco: "",
+        detalhe: "JERICOACARA - MORRO BRANCO - PRAIA DAS FONTES - CANOA QUEBRADA - ÁGUAS BELAS - BEACH PARK - CUMBUCO - LAGOINHA - FLECHEIRAS - MUNDAÚ - PARACURU",
       },
        {
-        titulo: "Passeio de Buggy Litoral Oeste",
-        preco: "R$ 450,00 / buggy",
-        detalhe: "Duração de 6 horas passando por lagoas e dunas com guia credenciado.",
+        titulo: "PRAIA & ADRENALINA",
+        preco: "",
+        detalhe: "SALTOS DE PARAQUEDAS, PARAPENTE,JET, BUGGY, QUADRICICLO, 4X4 PRIVATIVO,ESCUNA, CATAMARÃ.",
       },
        {
         titulo: "Hospedagens em Jericoacara",
@@ -215,13 +215,12 @@ export const PARCEIROS: Parceiro[] = [
     estado: "Ceará",
     siglaEstado: "CE",
     destaqueOferta: "Aula Experimental de Surf",
-    precoOriginal: 120,
-    precoPromocional: 80,
+    
     descricao: "Aulas de surf e Longboard. ",
     imagem: "/imagens/surf.webp",
     corBadge: "bg-blue-50 text-blue-700",
     whatsapp: "5585981803889",
-    instagramUrl: "https://instagram.com",
+    instagramUrl: "https://www.instagram.com/surf.ladies/",
     estilo: {
       fundo: "bg-cyan-50",
       banner: "bg-gradient-to-r from-cyan-700 to-blue-600 text-white",
@@ -547,6 +546,83 @@ export const PARCEIROS: Parceiro[] = [
       },
     ],
   },
+  {
+    id: 13,
+    slug: "wallancantor",
+    nome: "Wallan Cantor",
+    tema: "Shows",
+    cidade: "Fortaleza",
+    estado: "Ceará",
+    siglaEstado: "CE",
+    destaqueOferta: "Ouça Vaquejada ta na moda no Sua música",
+    descricao: "O melhor do forró e vaquejada! Ouça o novo repertório oficial nas plataformas digitais e contrate para o seu evento.",
+    imagem: "/imagens/wallancantor.png",
+    posicaoImagem: "object-[50%_20%]",
+    corBadge: "bg-blue-50 text-blue-700",
+    whatsapp: "5585997152110",
+    textoBotao: "Contrate para Shows (WhatsApp)",
+    instagramUrl: "https://www.instagram.com/wallancantor/",
+    siteUrl: "https://brasillocal-dr9p.vercel.app/wallancantor",
+    comodidades: ["Forró",],
+    linksMusicais: [
+      {
+        plataforma: "suamusica",
+        titulo: "Ouça e Baixe no Sua Música",
+        subtitulo: "CD Oficial Julho 2026 • Repertório Novo",
+        url: "https://suamusica.com.br/wallanlopezD/wallan-cantor-oficial-julho-2026",
+      },
+      {
+        plataforma: "spotify",
+        titulo: "Ouça no Spotify",
+        subtitulo: "Lançamento Oficial • Streaming",
+        url: "https://open.spotify.com/intl-pt/track/222DWLQnqpmbII81jiAiN8",
+      },
+      {
+        plataforma: "youtube",
+        titulo: "Inscreva-se no YouTube",
+        subtitulo: "Clipes oficiais e shows completos (@wallancantoroficial)",
+        url: "https://www.youtube.com/@wallancantoroficial",
+      },
+    ],
+    agendaShows: [
+      {
+        dia: "28",
+        mes: "NOV",
+        cidade: "Fortaleza - CE",
+        local: "Casa de Shows Vila do Forró",
+        horario: "22h00",
+      },
+      {
+        dia: "05",
+        mes: "DEZ",
+        cidade: "Aquiraz - CE",
+        local: "Arena Litoral Fest",
+        horario: "23h30",
+      },
+      {
+        dia: "12",
+        mes: "DEZ",
+        cidade: "Sobral - CE",
+        local: "Parque de Vaquejada",
+        horario: "01h00",
+      },
+    ],
+    estilo: {
+      fundo: "bg-slate-950",
+      banner: "bg-gradient-to-br from-amber-600 via-orange-700 to-slate-950 text-white",
+      botao: "bg-emerald-500 hover:bg-emerald-600 text-slate-950",
+      destaque: "text-amber-400",
+    },
+    servicos: [
+      {
+        titulo: "Show Completo (Banda + Estrutura)",
+        preco: "Contratação Direta",
+        detalhe:
+          "Repertório atualizado de forró e vaquejada para festas, vaquejadas, prefeituras e eventos privados.",
+      },
+    ],
+  },
+
 ];
 
 export const ARTIGOS_BLOG: ArtigoBlog[] = [

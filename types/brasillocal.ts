@@ -16,6 +16,22 @@ export type TemaCategoria =
   | "Cultura"
   | "Gastronomia";
 
+  export interface LinkPlataforma {
+  plataforma: "suamusica" | "youtube" | "spotify" | "instagram" | "outro";
+  titulo: string;
+  subtitulo?: string;
+  url: string;
+}
+
+export interface EventoAgenda {
+  dia: string;
+  mes: string;
+  cidade: string;
+  local: string;
+  horario?: string;
+  linkIngresso?: string;
+}
+
 export interface ServicoParceiro {
   titulo: string;
   preco: string;
@@ -39,6 +55,7 @@ export interface Parceiro {
   siglaEstado: string;
   descricao: string;
   imagem: string;
+  posicaoImagem?: string;
   corBadge: string;
   whatsapp: string;
   instagramUrl?: string;
@@ -47,8 +64,13 @@ export interface Parceiro {
   precoOriginal?: number;
   precoPromocional?: number;
   comodidades?: string[];
+  linksMusicais?: LinkPlataforma[];
+  agendaShows?: EventoAgenda[];
   estilo: EstiloParceiro;
   servicos: ServicoParceiro[];
+  textoBotao?: string;
+  mensagemWhatsCustom?: string;
+  
 }
 
 export interface EstadoItem {

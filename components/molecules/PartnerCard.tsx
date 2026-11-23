@@ -27,7 +27,7 @@ export default function PartnerCard({ parceiro }: PartnerCardProps) {
           <img
             src={parceiro.imagem}
             alt={parceiro.nome}
-            className="w-full h-44 object-cover"
+            className={`w-full h-44 object-cover ${parceiro.posicaoImagem || "object-center"}`}
           />
         </Link>
 

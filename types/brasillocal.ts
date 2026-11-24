@@ -14,7 +14,9 @@ export type TemaCategoria =
   | "Shows"
   | "Esporte"
   | "Cultura"
-  | "Gastronomia";
+  | "Gastronomia"
+  | "Comércio"
+  | "Serviços"
 
   export interface LinkPlataforma {
   plataforma: "suamusica" | "youtube" | "spotify" | "instagram" | "outro";

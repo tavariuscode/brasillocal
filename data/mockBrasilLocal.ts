@@ -14,6 +14,9 @@ export const TEMAS: TemaCategoria[] = [
   "Esporte",
   "Cultura",
   "Gastronomia",
+  "Comércio",
+  "Serviços",
+  
 ];
 
 export const REGIOES_BRASIL: RegiaoBrasil[] = [
@@ -622,6 +625,197 @@ export const PARCEIROS: Parceiro[] = [
       },
     ],
   },
+    // ==========================================
+  // 🛒 SEGMENTO: COMÉRCIO LOCAL
+  // ==========================================
+  {
+    id: 14,
+    slug: "mercadinhogastemenos",
+    nome: "Mercadinho & Variedades no Joaquim Távora",
+    tema: "Comércio",
+    cidade: "Fortaleza",
+    estado: "Ceará",
+    siglaEstado: "CE",
+    destaqueOferta: "Ofertas da Semana",
+    descricao:
+      "Tudo o que você precisa no dia a dia: mercearia completa, hortifrúti fresquinho, bebidas geladas, limpeza e utilidades.",
+    imagem: "/imagens/mrc.png",
+    corBadge: "bg-emerald-50 text-emerald-700",
+    whatsapp: "5585988441699",
+    textoBotao: "Fazer Pedido pelo WhatsApp",
+    mensagemWhatsCustom:
+      "Olá! Vi o Mercadinho no Portal Brasil Local e gostaria de fazer um pedido / consultar produtos.",
+    comodidades: [
+      "Entrega rápida na região",
+      "Aceitamos Pix, Cartão e Vale",
+      "Hortifrúti diário",
+      "Bebidas geladas",
+    ],
+    estilo: {
+      fundo: "bg-emerald-50/70",
+      banner: "bg-gradient-to-r from-emerald-700 to-green-600 text-white",
+      botao: "bg-emerald-600 hover:bg-emerald-700 text-white",
+      destaque: "text-emerald-700",
+    },
+    servicos: [
+      {
+        titulo: "Kit Churrasco & Bebidas Geladas",
+        preco: "Consulte valores",
+        detalhe:
+          "Carvão, gelo, carnes selecionadas, refrigerantes e cervejas trincando para o seu fim de semana.",
+      },
+      {
+        titulo: "Compras do Mês & Feira da Semana",
+        preco: "Entrega Grátis*",
+        detalhe:
+          "Envie sua lista pelo WhatsApp que separamos tudo e entregamos na sua porta.",
+      },
+      {
+        titulo: "Utilidades & Artigos para o Lar",
+        preco: "Preços populares",
+        detalhe:
+          "Produtos de limpeza, higiene pessoal, descartáveis e itens de emergência para casa.",
+      },
+    ],
+  },
+    // ==========================================
+  // 💇‍♀️ SEGMENTO: SERVIÇOS (BELEZA & ESTÉTICA)
+  // ==========================================
+  {
+    id: 15,
+    slug: "studiodabeleza",
+    nome: "Studio Beleza & Estilo",
+    tema: "Serviços",
+    cidade: "Fortaleza",
+    estado: "Ceará",
+    siglaEstado: "CE",
+    destaqueOferta: "Combo Escova + Hidratação Profunda",
+    precoOriginal: 110,
+    precoPromocional: 79.9,
+    descricao:
+      "Especialistas em realçar a sua beleza: cortes, escovas, coloração, mechas, cronograma capilar e design de sobrancelhas.",
+    imagem: "/imagens/salao.png",
+    posicaoImagem: "object-[50%_20%]",
+    corBadge: "bg-pink-50 text-pink-700",
+    whatsapp: "5585999990009",
+    textoBotao: "Agendar Horário no WhatsApp",
+    mensagemWhatsCustom:
+      "Olá! Vi o Studio no Portal Brasil Local e gostaria de verificar horários disponíveis.",
+    comodidades: [
+      "Atendimento com hora marcada",
+      "Ambiente climatizado",
+      "Produtos profissionais",
+      "Aceitamos Pix e Cartão",
+    ],
+    estilo: {
+      fundo: "bg-rose-50/70",
+      banner: "bg-gradient-to-r from-rose-700 via-pink-700 to-rose-900 text-white",
+      botao: "bg-rose-600 hover:bg-rose-700 text-white",
+      destaque: "text-rose-700",
+    },
+    servicos: [
+      {
+        titulo: "Combo Hidratação + Escova Modelada",
+        preco: "R$ 79,90",
+        detalhe:
+          "Tratamento nutritivo para devolver o brilho e maciez dos fios com finalização impecável.",
+      },
+      {
+        titulo: "Corte Feminino + Finalização",
+        preco: "R$ 65,00",
+        detalhe:
+          "Corte personalizado para o formato do seu rosto com lavagem e secagem.",
+      },
+      {
+        titulo: "Mechas, Morena Iluminada & Coloração",
+        preco: "Avaliação gratuita",
+        detalhe:
+          "Técnicas modernas com proteção dos fios para um resultado natural e luminoso.",
+      },
+      {
+        titulo: "Design de Sobrancelhas + Henna",
+        preco: "R$ 45,00",
+        detalhe:
+          "Alinhamento perfeito valorizando o olhar com acabamento natural.",
+      },
+    ],
+  },
+    // ==========================================
+  // 🚗 SEGMENTO: SERVIÇOS (ESTÉTICA AUTOMOTIVA)
+  // ==========================================
+  {
+    id: 16,
+    slug: "maquineestetica",
+    nome: "Maquine Estética Automotiva",
+    tema: "Serviços",
+    cidade: "Boa Vista",
+    estado: "Roraima",
+    siglaEstado: "RR",
+    destaqueOferta: "Polimento Técnico + Cristalização de Pintura",
+    precoOriginal: 450,
+    precoPromocional: 349.9,
+    descricao:
+      "Cuidado profissional para o seu veículo: polimento técnico, vitrificação, higienização interna, limpeza de bancos e revitalização de faróis. - Rua Jorge Fraxe, 1444 - Caimbé, Boa Vista.",
+    imagem: "/imagens/maquine.png",
+    corBadge: "bg-sky-50 text-sky-700",
+    whatsapp: "5595991396524",
+    textoBotao: "Solicitar Orçamento no WhatsApp",
+    mensagemWhatsCustom:
+      "Olá! Vi a BrilhoCar no Portal Brasil Local e gostaria de um orçamento para estética automotiva.",
+    comodidades: [
+      "Produtos de alta performance",
+      "Atendimento agendado",
+      
+      "Orçamento rápido pelo WhatsApp",
+    ],
+    estilo: {
+      fundo: "bg-slate-950",
+      banner: "bg-gradient-to-r from-slate-900 via-sky-900 to-slate-950 text-white",
+      botao: "bg-sky-500 hover:bg-sky-400 text-slate-950",
+      destaque: "text-sky-400",
+    },
+    servicos: [
+      {
+        titulo: "Lavagem de Manutenção",
+        preco: "",
+        detalhe:
+          "Remoção de micro-riscos, manchas de sol e oxidação, devolvendo o brilho espelhado de carro zero.",
+      },
+      {
+        titulo: "Lavagem Geral",
+        preco: "",
+        detalhe:
+          "Limpeza profunda de bancos (tecido ou couro), teto, carpetes, painel e oxi-sanitização contra odores.",
+      },
+      {
+        titulo: "Lavagem e higienização",
+        preco: "",
+        detalhe:
+          "Remoção do amarelado e opacidade das lentes com aplicação de proteção UV.",
+      },
+        {
+        titulo: "Polimento técnico e vitrificação",
+        preco: "",
+        detalhe:
+          "Remoção do amarelado e opacidade das lentes com aplicação de proteção UV.",
+      },
+       {
+        titulo: "Tratamento de farol",
+        preco: "",
+        detalhe:
+          "Remoção do amarelado e opacidade das lentes com aplicação de proteção UV.",
+      },
+       {
+        titulo: "Descontaminação de vidro e polimento",
+        preco: "",
+        detalhe:
+          "Remoção do amarelado e opacidade das lentes com aplicação de proteção UV.",
+      },
+    ],
+  },
+
+
+
 
 ];
 

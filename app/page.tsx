@@ -9,11 +9,30 @@ export default function BrasilLocalHomePage() {
   const [busca, setBusca] = useState<string>("");
   const [estadoSelecionado, setEstadoSelecionado] = useState<string>("TODOS");
   const [temaAtivo, setTemaAtivo] = useState<TemaCategoria>("Todos");
+  const [subcategoriaAtiva, setSubcategoriaAtiva] = useState<string>("Todas");
+  const [generoAtivo, setGeneroAtivo] = useState<string>("Todos");
+
+  const handleSelectTema = (novoTema: TemaCategoria) => {
+    setTemaAtivo(novoTema);
+    setSubcategoriaAtiva("Todas");
+    setGeneroAtivo("Todos");
+  };
+
+  const handleSelectSubcategoria = (novaSub: string) => {
+    setSubcategoriaAtiva(novaSub);
+    if (novaSub !== "Gêneros Musicais") {
+      setGeneroAtivo("Todos");
+    }
+  };
 
   const parceirosFiltrados = PARCEIROS.filter((item) => {
     const bateEstado =
       estadoSelecionado === "TODOS" || item.siglaEstado === estadoSelecionado;
     const bateTema = temaAtivo === "Todos" || item.tema === temaAtivo;
+    const bateSub =
+      subcategoriaAtiva === "Todas" || item.subcategoria === subcategoriaAtiva;
+    const bateGenero =
+      generoAtivo === "Todos" || item.estiloMusical === generoAtivo;
 
     const termo = busca.toLowerCase();
     const bateBusca =
@@ -22,10 +41,14 @@ export default function BrasilLocalHomePage() {
         item.destaqueOferta.toLowerCase().includes(termo)) ||
       item.descricao.toLowerCase().includes(termo) ||
       item.cidade.toLowerCase().includes(termo) ||
-      item.estado.toLowerCase().includes(termo);
+      item.estado.toLowerCase().includes(termo) ||
+      (item.subcategoria && item.subcategoria.toLowerCase().includes(termo)) ||
+      (item.estiloMusical && item.estiloMusical.toLowerCase().includes(termo));
 
-    return bateEstado && bateTema && bateBusca;
-  });
+    return bateEstado && bateTema && bateSub && bateGenero && bateBusca;
+  }).sort(
+    (a, b) => Number(Boolean(b.patrocinado)) - Number(Boolean(a.patrocinado))
+  );
 
   return (
     <HomeTemplate
@@ -35,7 +58,11 @@ export default function BrasilLocalHomePage() {
       onSelecionarEstado={setEstadoSelecionado}
       temas={TEMAS}
       temaAtivo={temaAtivo}
-      onSelectTema={setTemaAtivo}
+      onSelectTema={handleSelectTema}
+      subcategoriaAtiva={subcategoriaAtiva}
+      onSelectSubcategoria={handleSelectSubcategoria}
+      generoAtivo={generoAtivo}
+      onSelectGenero={setGeneroAtivo}
       parceiros={parceirosFiltrados}
       artigos={ARTIGOS_BLOG}
     />

@@ -13,6 +13,11 @@ export default function PartnerTemplate({ parceiro }: PartnerTemplateProps) {
   const isTemaEscuro =
     estilo.fundo.includes("950") || estilo.fundo.includes("900");
 
+  const isArtista = parceiro.subcategoria === "Gẽneros Musicais";
+  const isArtistaOuShow =
+    parceiro.subcategoria === "Shows" ||
+    parceiro.subcategoria === "Gêneros Musicais";  
+
   const numeroLimpo = parceiro.whatsapp.replace(/\D/g, "");
   const urlWhats = new URL("https://wa.me");
   urlWhats.pathname = numeroLimpo;
@@ -59,6 +64,8 @@ export default function PartnerTemplate({ parceiro }: PartnerTemplateProps) {
       className={`min-h-screen flex flex-col ${estilo.fundo} ${
         isTemaEscuro ? "text-white" : "text-slate-900"
       }`}
+
+     
     >
       <nav className="bg-slate-950/90 backdrop-blur-md text-white px-4 py-3 border-b border-white/10 sticky top-0 z-30">
         <div className="max-w-3xl mx-auto flex justify-between items-center">
@@ -80,9 +87,10 @@ export default function PartnerTemplate({ parceiro }: PartnerTemplateProps) {
             src={parceiro.imagem}
             alt={parceiro.nome}
             className={`w-28 h-28 sm:w-36 sm:h-36 object-cover border-4 border-white/25 shadow-2xl mb-4 ${
-              parceiro.tema === "Shows" ? "rounded-full" : "rounded-2xl"
+              isArtistaOuShow ? "rounded-full" : "rounded-2xl"
             } ${parceiro.posicaoImagem || "object-center"}`}
           />
+
           <span className="inline-block bg-black/30 backdrop-blur-sm text-white text-[11px] font-bold uppercase tracking-wider px-3 py-1 rounded-full mb-2">
             {parceiro.tema} • {parceiro.cidade}, {parceiro.estado}
           </span>
@@ -246,12 +254,19 @@ export default function PartnerTemplate({ parceiro }: PartnerTemplateProps) {
           </section>
         )}
 
+       
+        
+                {/* 6. SERVIÇOS, ESTOQUE DE VEÍCULOS E CATÁLOGO DE IMÓVEIS */}
         <section>
           <h2 className="text-lg sm:text-xl font-bold mb-3">
             {parceiro.tema === "Hotelaria"
               ? "Acomodações e Diárias"
               : parceiro.tema === "Shows"
               ? "Formatos de Show & Contratação"
+              : parceiro.subcategoria === "Automóveis"
+              ? "Veículos Disponíveis em Estoque"
+              : parceiro.subcategoria === "Imóveis"
+              ? "Imóveis em Destaque"
               : "Serviços e Destaques"}
           </h2>
 
@@ -271,26 +286,37 @@ export default function PartnerTemplate({ parceiro }: PartnerTemplateProps) {
               return (
                 <div
                   key={index}
-                  className={`p-5 rounded-2xl border flex flex-col justify-between ${
+                  className={`rounded-2xl border overflow-hidden flex flex-col justify-between ${
                     isTemaEscuro
                       ? "bg-slate-900 border-slate-800"
                       : "bg-white border-slate-200 shadow-2xs"
                   }`}
                 >
                   <div>
-                    <h3 className="font-bold text-base sm:text-lg">
-                      {servico.titulo}
-                    </h3>
-                    <p
-                      className={`text-xs sm:text-sm mt-1.5 mb-4 ${
-                        isTemaEscuro ? "text-slate-400" : "text-slate-600"
-                      }`}
-                    >
-                      {servico.detalhe}
-                    </p>
+                    {/* Foto do Veículo, Imóvel ou Produto (Aparece se cadastrada) */}
+                    {servico.imagem && (
+                      <img
+                        src={servico.imagem}
+                        alt={servico.titulo}
+                        className="w-full h-48 object-cover"
+                      />
+                    )}
+
+                    <div className="p-5 pb-3">
+                      <h3 className="font-bold text-base sm:text-lg">
+                        {servico.titulo}
+                      </h3>
+                      <p
+                        className={`text-xs sm:text-sm mt-1.5 ${
+                          isTemaEscuro ? "text-slate-400" : "text-slate-600"
+                        }`}
+                      >
+                        {servico.detalhe}
+                      </p>
+                    </div>
                   </div>
 
-                  <div className="pt-3 border-t border-slate-200/20 flex items-center justify-between gap-3">
+                  <div className="px-5 pb-5 pt-3 border-t border-slate-200/20 flex items-center justify-between gap-3">
                     <span className={`font-extrabold text-sm ${estilo.destaque}`}>
                       {servico.preco}
                     </span>
@@ -301,7 +327,7 @@ export default function PartnerTemplate({ parceiro }: PartnerTemplateProps) {
                       rel="noopener noreferrer"
                       className={`px-4 py-2 rounded-xl font-extrabold text-xs transition-transform active:scale-95 ${estilo.botao}`}
                     >
-                      💬 Solicitar no WhatsApp
+                      💬 Tenho Interesse
                     </a>
                   </div>
                 </div>
@@ -309,6 +335,9 @@ export default function PartnerTemplate({ parceiro }: PartnerTemplateProps) {
             })}
           </div>
         </section>
+      
+
+        
       </main>
 
       <Footer />

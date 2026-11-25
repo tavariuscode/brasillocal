@@ -16,6 +16,7 @@ export const TEMAS: TemaCategoria[] = [
   "Gastronomia",
   "Comércio",
   "Serviços",
+  "Saúde",
   
 ];
 
@@ -26,6 +27,22 @@ export const REGIOES_BRASIL: RegiaoBrasil[] = [
   "Centro-Oeste",
   "Sudeste",
   "Sul",
+];
+
+export const SUBCATEGORIAS_POR_TEMA: Partial<Record<TemaCategoria, string[]>> = {
+  Cultura: ["Todas", "Shows", "Teatro", "Museus & Exposições", "Gêneros Musicais"],
+  Comércio: ["Todas", "Mercadinhos", "Imóveis", "Automóveis"],
+  Saúde: ["Todas","Nutrição","Fisioterapia","Personal Trainer","Clínica Odontológica",],
+};
+
+export const GENEROS_MUSICAIS:string[] = [
+  "Todos",
+  "Forró",
+  "MPB",
+  "Rock",
+  "Reggae",
+  "Pagode",
+  "Samba",
 ];
 
 export const TODOS_ESTADOS: EstadoItem[] = [
@@ -553,7 +570,9 @@ export const PARCEIROS: Parceiro[] = [
     id: 13,
     slug: "wallancantor",
     nome: "Wallan Cantor",
-    tema: "Shows",
+    tema: "Cultura",
+    subcategoria: "Gêneros Musicais",
+    estiloMusical: "Forró",
     cidade: "Fortaleza",
     estado: "Ceará",
     siglaEstado: "CE",
@@ -631,8 +650,9 @@ export const PARCEIROS: Parceiro[] = [
   {
     id: 14,
     slug: "mercadinhogastemenos",
-    nome: "Mercadinho & Variedades no Joaquim Távora",
+    nome: "O Mercadinho da família no Joaquim Távora",
     tema: "Comércio",
+    subcategoria: "Mercadinhos",
     cidade: "Fortaleza",
     estado: "Ceará",
     siglaEstado: "CE",
@@ -642,6 +662,7 @@ export const PARCEIROS: Parceiro[] = [
     imagem: "/imagens/mrc.png",
     corBadge: "bg-emerald-50 text-emerald-700",
     whatsapp: "5585988441699",
+    instagramUrl: "https://www.instagram.com/mercadinhogastemenos/",
     textoBotao: "Fazer Pedido pelo WhatsApp",
     mensagemWhatsCustom:
       "Olá! Vi o Mercadinho no Portal Brasil Local e gostaria de fazer um pedido / consultar produtos.",
@@ -661,6 +682,7 @@ export const PARCEIROS: Parceiro[] = [
       {
         titulo: "Kit Churrasco & Bebidas Geladas",
         preco: "Consulte valores",
+        imagem:"imagens/churrasco.png",
         detalhe:
           "Carvão, gelo, carnes selecionadas, refrigerantes e cervejas trincando para o seu fim de semana.",
       },
@@ -683,21 +705,21 @@ export const PARCEIROS: Parceiro[] = [
   // ==========================================
   {
     id: 15,
-    slug: "studiodabeleza",
-    nome: "Studio Beleza & Estilo",
+    slug: "naycabelos",
+    nome: "Nay Cabelos",
     tema: "Serviços",
     cidade: "Fortaleza",
     estado: "Ceará",
     siglaEstado: "CE",
     destaqueOferta: "Combo Escova + Hidratação Profunda",
-    precoOriginal: 110,
-    precoPromocional: 79.9,
+    
     descricao:
       "Especialistas em realçar a sua beleza: cortes, escovas, coloração, mechas, cronograma capilar e design de sobrancelhas.",
-    imagem: "/imagens/salao.png",
+    imagem: "/imagens/naycabelos.png",
     posicaoImagem: "object-[50%_20%]",
     corBadge: "bg-pink-50 text-pink-700",
-    whatsapp: "5585999990009",
+    whatsapp: "558596659697",
+    instagramUrl: "https://www.instagram.com/naycabelos8_/",
     textoBotao: "Agendar Horário no WhatsApp",
     mensagemWhatsCustom:
       "Olá! Vi o Studio no Portal Brasil Local e gostaria de verificar horários disponíveis.",
@@ -715,28 +737,34 @@ export const PARCEIROS: Parceiro[] = [
     },
     servicos: [
       {
-        titulo: "Combo Hidratação + Escova Modelada",
-        preco: "R$ 79,90",
+        titulo: "Escova Inteligente",
+        preco: "",
         detalhe:
           "Tratamento nutritivo para devolver o brilho e maciez dos fios com finalização impecável.",
       },
       {
-        titulo: "Corte Feminino + Finalização",
-        preco: "R$ 65,00",
+        titulo: "Corte",
+        preco: "",
         detalhe:
           "Corte personalizado para o formato do seu rosto com lavagem e secagem.",
       },
       {
-        titulo: "Mechas, Morena Iluminada & Coloração",
+        titulo: "Hidrataçao",
         preco: "Avaliação gratuita",
         detalhe:
           "Técnicas modernas com proteção dos fios para um resultado natural e luminoso.",
       },
       {
-        titulo: "Design de Sobrancelhas + Henna",
-        preco: "R$ 45,00",
+        titulo: "Cronograma",
+        preco: "",
         detalhe:
           "Alinhamento perfeito valorizando o olhar com acabamento natural.",
+      },
+       {
+        titulo: "Botox",
+        preco: "",
+        detalhe:
+          "Revitalização Total",
       },
     ],
   },
@@ -813,6 +841,292 @@ export const PARCEIROS: Parceiro[] = [
       },
     ],
   },
+
+  {
+    id: 21,
+    slug: "altpinturaautomotiva",
+    nome: "Alt Pintura Automotiva",
+    tema: "Serviços",
+    cidade: "Fortaleza",
+    estado: "Ceará",
+    siglaEstado: "CE",
+    destaqueOferta: "Especialista em Pintura Automotiva",
+    
+    descricao:
+      "Rua Pastor Samuel Munguba, 1498 - Rodolfo Teófilo, Fortaleza -CE.",
+    imagem: "/imagens/thiagopintura.png",
+    corBadge: "bg-sky-50 text-sky-700",
+    whatsapp: "5585992084527",
+    textoBotao: "Solicitar Orçamento no WhatsApp",
+    mensagemWhatsCustom:
+      "Olá! Vi a Alt no Portal Brasil Local e gostaria de um orçamento para pintura automotiva.",
+    comodidades: [
+      "Qualidade",
+      "Profissionalismo",
+      "Acabamento Premium",
+    ],
+    estilo: {
+      fundo: "bg-slate-950",
+      banner: "bg-gradient-to-r from-slate-900 via-sky-900 to-slate-950 text-white",
+      botao: "bg-sky-500 hover:bg-sky-400 text-slate-950",
+      destaque: "text-sky-400",
+    },
+    servicos:  [{
+        titulo: "Pintura Automotiva Profissional",
+        preco: "",
+        imagem: "imagens/thiagopintura2.png",
+        detalhe:
+          "Produtos Premium",
+      },
+    
+      
+    ],
+  },
+    // ==========================================
+  // 🏍️ SEGMENTO: VEÍCULOS (CARROS E MOTOS)
+  // ==========================================
+  {
+    id: 17,
+    slug: "chicocar",
+    nome: "Chico Zoada Car",
+    tema: "Comércio",
+    subcategoria: "Automóveis",
+    cidade: "Boa Vista",
+    estado: "Roraima",
+    siglaEstado: "RR",
+    destaqueOferta: "Carros e Motos Revisados • Financiamento e Troca",
+    descricao:
+      "Compra, venda, troca e financiamento de carros e motos seminovos com procedência garantida, garantia de motor e câmbio e aprovação rápida.",
+    imagem: "/imagens/alexandreveiculos.png",
+    corBadge: "bg-indigo-50 text-indigo-700",
+    whatsapp: "559581182090",
+    textoBotao: "Simular Financiamento no WhatsApp",
+    mensagemWhatsCustom:
+      "Olá! Vi o estoque da Prime Veículos no Portal Brasil Local e gostaria de saber mais sobre os modelos disponíveis.",
+    comodidades: [
+      "Aceitamos carro ou moto na troca",
+      "Financiamento em até 60x",
+      "Veículos periciados e revisados",
+      "Entrada facilitada no cartão",
+    ],
+    estilo: {
+      fundo: "bg-slate-950",
+      banner: "bg-gradient-to-r from-slate-900 via-indigo-950 to-slate-950 text-white",
+      botao: "bg-indigo-500 hover:bg-indigo-400 text-white",
+      destaque: "text-indigo-400",
+    },
+    servicos: [
+      {
+        titulo: "Honda CG 160 Titan EX (2024)",
+        preco: "R$ 18.900,00",
+        imagem: "imagens/honda24.png",
+        detalhe:
+          "Único dono, apenas 8.500 km rodados, partida elétrica, freio combinado e IPVA pago.",
+      },
+      {
+        titulo: "Chevrolet Onix LT 1.0 Turbo (2023)",
+        preco: "R$ 74.500,00",
+        imagem: "imagens/onix2024.png",
+        detalhe:
+          "Completo, multimídia MyLink, ar-condicionado, direção elétrica e baixa quilometragem.",
+      },
+      {
+        titulo: "Yamaha Fazer FZ25 ABS (2024)",
+        preco: "R$ 23.400,00",
+        imagem: "imagens/chicoyamaha.png",
+        detalhe:
+          "Freios ABS nas duas rodas, painel digital, iluminação em LED e revisões em dia.",
+      },
+      {
+        titulo: "Avaliação do seu Veículo na Troca",
+        preco: "Avaliação na hora",
+        imagem: "imagens/carrovelho.png",
+        detalhe:
+          "Envie fotos e ano do seu carro ou moto pelo WhatsApp para receber uma proposta rápida.",
+      },
+    ],
+  },
+    // ==========================================
+  // 🏠 SEGMENTO: IMÓVEIS (VENDA E ALUGUEL)
+  // ==========================================
+  {
+    id: 18,
+    slug: "horizonteimoveisce",
+    nome: "Horizonte Imóveis & Consultoria",
+    tema: "Comércio",
+    subcategoria: "Imóveis",
+    cidade: "Fortaleza",
+    estado: "Ceará",
+    siglaEstado: "CE",
+    destaqueOferta: "Casas, Apartamentos e Locação em Fortaleza",
+    descricao:
+      "Assessoria completa para compra, venda e aluguel de imóveis residenciais e comerciais com segurança jurídica e atendimento personalizado.",
+    imagem: "https://unsplash.com",
+    corBadge: "bg-teal-50 text-teal-700",
+    whatsapp: "5585999990012",
+    textoBotao: "Agendar Visita no WhatsApp",
+    mensagemWhatsCustom:
+      "Olá! Vi o catálogo da Horizonte Imóveis no Portal Brasil Local e gostaria de agendar uma visita.",
+    comodidades: [
+      "Financiamento Caixa / Bancos",
+      "Análise de crédito gratuita",
+      "Imóveis prontos e na planta",
+      "Locação residencial e comercial",
+    ],
+    estilo: {
+      fundo: "bg-stone-50",
+      banner: "bg-gradient-to-r from-teal-900 via-emerald-800 to-teal-950 text-white",
+      botao: "bg-teal-700 hover:bg-teal-800 text-white",
+      destaque: "text-teal-700",
+    },
+    servicos: [
+      {
+        titulo: "Casa Duplex 3 Suítes • Eusébio / CE",
+        preco: "R$ 580.000,00 (Venda)",
+        detalhe:
+          "Condomínio fechado com área de lazer completa, quintal privativo, 3 vagas e acabamento premium.",
+      },
+      {
+        titulo: "Apartamento 2 Quartos • Aldeota (Locação)",
+        preco: "R$ 2.100,00 / mês",
+        detalhe:
+          "Nascente, sala ampla, varanda, cozinha projetada, 1 vaga coberta e portaria 24h.",
+      },
+      {
+        titulo: "Apartamento na Planta • Minha Casa Minha Vida",
+        preco: "A partir de R$ 215.000",
+        detalhe:
+          "Entrada facilitada em até 48x, subsídio do governo e área de lazer com piscina e deck.",
+      },
+      {
+        titulo: "Anuncie seu Imóvel Conosco",
+        preco: "Avaliação gratuita",
+        detalhe:
+          "Quer vender ou alugar sua casa, apartamento ou ponto comercial? Fale direto com nossa equipe.",
+      },
+    ],
+  },
+  // ==========================================
+  // 🏠 SEGMENTO: IMÓVEIS (VENDA E ALUGUEL)
+  // ==========================================
+  {
+    id: 19,
+    slug: "corretorasandra",
+    nome: "Corretora Sandra Pinheiro",
+    tema: "Comércio",
+    subcategoria: "Imóveis",
+    cidade: "Fortaleza",
+    estado: "Ceará",
+    siglaEstado: "CE",
+    destaqueOferta: "Casas, Apartamentos e Locação em Fortaleza",
+    descricao:
+      "Assessoria completa para compra, venda e aluguel de imóveis residenciais e comerciais com segurança jurídica e atendimento personalizado.",
+    imagem: "imagens/sandrapinheiro.png",
+    corBadge: "bg-teal-50 text-teal-700",
+    whatsapp: "558598451288",
+    instagramUrl: "https://www.instagram.com/sandramonicah_imoveis/",
+    textoBotao: "Agendar Visita no WhatsApp",
+    mensagemWhatsCustom:
+      "Olá! Vi o catálogo da Horizonte Imóveis no Portal Brasil Local e gostaria de agendar uma visita.",
+    comodidades: [
+      "Loteamentos",
+      "Análise de crédito gratuita",
+      "Imóveis prontos e na planta",
+      "Locação residencial e comercial",
+    ],
+    estilo: {
+      fundo: "bg-stone-50",
+      banner: "bg-gradient-to-r from-teal-900 via-emerald-800 to-teal-950 text-white",
+      botao: "bg-teal-700 hover:bg-teal-800 text-white",
+      destaque: "text-teal-700",
+    },
+    servicos: [
+      {
+        titulo: "Casa Duplex 3 Suítes • Eusébio / CE",
+        preco: "R$ 580.000,00 (Venda)",
+        detalhe:
+          "Condomínio fechado com área de lazer completa, quintal privativo, 3 vagas e acabamento premium.",
+      },
+      {
+        titulo: "Apartamento 2 Quartos • Aldeota (Locação)",
+        preco: "R$ 2.100,00 / mês",
+        detalhe:
+          "Nascente, sala ampla, varanda, cozinha projetada, 1 vaga coberta e portaria 24h.",
+      },
+      {
+        titulo: "Apartamento na Planta • Minha Casa Minha Vida",
+        preco: "A partir de R$ 215.000",
+        detalhe:
+          "Entrada facilitada em até 48x, subsídio do governo e área de lazer com piscina e deck.",
+      },
+      {
+        titulo: "Anuncie seu Imóvel Conosco",
+        preco: "Avaliação gratuita",
+        detalhe:
+          "Quer vender ou alugar sua casa, apartamento ou ponto comercial? Fale direto com nossa equipe.",
+      },
+    ],
+  },
+    // ==========================================
+  // 🏠 SEGMENTO: IMÓVEIS (VENDA E ALUGUEL)
+  // ==========================================
+  {
+    id: 20,
+    slug: "horizonteimoveisce",
+    nome: "Horizonte Imóveis & Consultoria",
+    tema: "Comércio",
+    cidade: "Fortaleza",
+    estado: "Ceará",
+    siglaEstado: "CE",
+    destaqueOferta: "Casas, Apartamentos e Locação em Fortaleza",
+    descricao:
+      "Assessoria completa para compra, venda e aluguel de imóveis residenciais e comerciais com segurança jurídica e atendimento personalizado.",
+    imagem: "https://unsplash.com",
+    corBadge: "bg-teal-50 text-teal-700",
+    whatsapp: "5585999990012",
+    textoBotao: "Agendar Visita no WhatsApp",
+    mensagemWhatsCustom:
+      "Olá! Vi o catálogo da Horizonte Imóveis no Portal Brasil Local e gostaria de agendar uma visita.",
+    comodidades: [
+      "Financiamento Caixa / Bancos",
+      "Análise de crédito gratuita",
+      "Imóveis prontos e na planta",
+      "Locação residencial e comercial",
+    ],
+    estilo: {
+      fundo: "bg-stone-50",
+      banner: "bg-gradient-to-r from-teal-900 via-emerald-800 to-teal-950 text-white",
+      botao: "bg-teal-700 hover:bg-teal-800 text-white",
+      destaque: "text-teal-700",
+    },
+    servicos: [
+      {
+        titulo: "Casa Duplex 3 Suítes • Eusébio / CE",
+        preco: "R$ 580.000,00 (Venda)",
+        detalhe:
+          "Condomínio fechado com área de lazer completa, quintal privativo, 3 vagas e acabamento premium.",
+      },
+      {
+        titulo: "Apartamento 2 Quartos • Aldeota (Locação)",
+        preco: "R$ 2.100,00 / mês",
+        detalhe:
+          "Nascente, sala ampla, varanda, cozinha projetada, 1 vaga coberta e portaria 24h.",
+      },
+      {
+        titulo: "Apartamento na Planta • Minha Casa Minha Vida",
+        preco: "A partir de R$ 215.000",
+        detalhe:
+          "Entrada facilitada em até 48x, subsídio do governo e área de lazer com piscina e deck.",
+      },
+      {
+        titulo: "Anuncie seu Imóvel Conosco",
+        preco: "Avaliação gratuita",
+        detalhe:
+          "Quer vender ou alugar sua casa, apartamento ou ponto comercial? Fale direto com nossa equipe.",
+      },
+    ],
+  },
+
 
 
 

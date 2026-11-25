@@ -17,6 +17,8 @@ export type TemaCategoria =
   | "Gastronomia"
   | "Comércio"
   | "Serviços"
+  | "Saúde"
+  
 
   export interface LinkPlataforma {
   plataforma: "suamusica" | "youtube" | "spotify" | "instagram" | "outro";
@@ -24,6 +26,11 @@ export type TemaCategoria =
   subtitulo?: string;
   url: string;
 }
+
+export const SUBCATEGORIAS_POR_TEMA: Partial<Record<TemaCategoria, string[]>> = {
+  Comércio: ["Todas", "Mercadinhos", "Imóveis", "Automóveis"],
+  Saúde: ["Todas", "Nutrição", "Fisioterapia", "Personal Trainer"],
+};
 
 export interface EventoAgenda {
   dia: string;
@@ -38,6 +45,7 @@ export interface ServicoParceiro {
   titulo: string;
   preco: string;
   detalhe: string;
+  imagem?: string;
 }
 
 export interface EstiloParceiro {
@@ -52,6 +60,8 @@ export interface Parceiro {
   slug: string;
   nome: string;
   tema: Exclude<TemaCategoria, "Todos">;
+  subcategoria?: string;
+  estiloMusical?: string;
   cidade: string;
   estado: string;
   siglaEstado: string;
@@ -60,6 +70,7 @@ export interface Parceiro {
   posicaoImagem?: string;
   corBadge: string;
   whatsapp: string;
+  patrocinado?: boolean;
   instagramUrl?: string;
   siteUrl?: string;
   destaqueOferta?: string;
@@ -72,8 +83,8 @@ export interface Parceiro {
   servicos: ServicoParceiro[];
   textoBotao?: string;
   mensagemWhatsCustom?: string;
-  
 }
+
 
 export interface EstadoItem {
   sigla: string;
